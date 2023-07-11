@@ -44,20 +44,20 @@
 - 프로그램에서는 다양한 자료를 임시(메모리)/영구적(파일시스템,데이터베이스)으로 저장하여 사용한다.
 - 만능인 자료구조는 없다. 상황에 따라 적절한 자료구조를 선택하여 사용해야 한다.
 - 자료구조의 선택(자료를 어떻게 저장할지)는 프로그램에 다음과 같은 중대한 영향을 끼친다.
-  1. 필요한 자료에 **효율적으로 빠르게 접근**할 수 있게 한다.
-  1. 자료의 중복을 최소화하여 **저장장치를 효율적으로 사용**할 수 있게 한다.
-  1. 자료구조 별로 **적절한 알고리즘을 기계적으로 적용**할 수 있다.
-  1. 동료들과 **협업**하는 데에 큰 도움이 된다. (잘못된 창의성을 발휘하지 않게 도와준다.)
+    1. 필요한 자료에 **효율적으로 빠르게 접근**할 수 있게 한다.
+    1. 자료의 중복을 최소화하여 **저장장치를 효율적으로 사용**할 수 있게 한다.
+    1. 자료구조 별로 **적절한 알고리즘을 기계적으로 적용**할 수 있다.
+    1. 동료들과 **협업**하는 데에 큰 도움이 된다. (잘못된 창의성을 발휘하지 않게 도와준다.)
 
 ## Java와 자료구조
 
 - Java에는 대부분의 자료구조가 Java Collections Framework에 구현되어 있다. Reference를 참고하여 확인해 보자.
-  - List (ArrayList, LinkedList)
-    - java.util.List 인터페이스
-    - java.util.List<T> 제네릭 인터페이스
-  - Map (HashMap, TreeMap)
-    - java.util.Map 인터페이스
-    - java.util.Map<K,V> 제네릭 인터페이스
-  - Set (HashSet, TreeSet)
-    - java.util.Set 인터페이스
-    - java.util.Set<T> 제네릭 인터페이스
+    - List (ArrayList, LinkedList)
+        - java.util.List 인터페이스
+        - java.util.List<T> 제네릭 인터페이스
+    - Map (HashMap, TreeMap)
+        - java.util.Map 인터페이스
+        - java.util.Map<K,V> 제네릭 인터페이스
+    - Set (HashSet, TreeSet)
+        - java.util.Set 인터페이스
+        - java.util.Set<T> 제네릭 인터페이스
