@@ -143,3 +143,8 @@ def selection_sort(x):
     - 최악의 경우: O(nlogn)
     - 최선의 경우: O(n)
     - 평균적인 경우: O(nlogn)
+
+
+TODO: 정렬이 활용되는 문제 제시
+
+TODO: 정렬 문제 1~2개 선정

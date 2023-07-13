@@ -19,21 +19,8 @@
 - 이진 탐색이라고도 부르며, 정렬된 자료의 탐색에 가장 많이 사용하는 알고리즘이다.
 - 탐색 범위를 절반씩 줄여가며, 시간복잡도는 O(logN)이다.
 
-## [실습] 이분 탐색 구현
 
-```python
-def solution(array, target_value):
-    answer = 0
-    return answer
-```
-
-- 이분 탐색을 이용하여 배열에서 target_value를 찾아, 값의 index를 반환하시오.
-- target_value를 찾지 못하면 -1을 반환하시오.
-
-## [실습] 이분 탐색 문제 - 1
+## 이분 탐색 문제 풀이
 
 - [프로그래머스 입국심사 문제](https://programmers.co.kr/learn/courses/30/lessons/43238)
-
-## [실습] 이분 탐색 문제 - 2
-
 - [프로그래머스 징검다리 문제](https://programmers.co.kr/learn/courses/30/lessons/43236)
