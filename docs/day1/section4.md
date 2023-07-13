@@ -21,6 +21,7 @@
 - 반복문과 조건문을 고려하여 분기별로 실행 횟수를 분석을 통해 알아낼 수 있다.
 
 ```java
+// array의 길이 = N
 int[] array = {1, 6, 2, 5, 4, 2, 5, 2, 3, 6, 3};
 
 int sum = 0
@@ -31,30 +32,35 @@ for (int i = 0; i < array.length; i++) {
 ```
 
 ```java
+// array의 길이 = N, array2의 길이 = M
 int[] array = {1, 6, 2, 5, 4, 2, 5, 2, 3, 6, 3};
+int[] array2 = {4, 2, 1, 6, 7, 4, 3, 6};
 
 int sum = 0
-// 배열의 길이에 비례해서 반복하는 for문
+// 배열의 길이에 비례해서 반복하는 for문. 복잡도는 N
 for (int i = 0; i < array.length; i++) { 
     sum += array[i];
 }
 
-// 두 번째 반복, for문이 2개이므로 복잡도는 2*N
-for (int i = 0; i < array.length; i++) { 
-    sum += array[i];
+// 두 번째 반복, 복잡도는 M
+for (int i = 0; i < array2.length; i++) { 
+    sum += array2[i];
 }
+
+// 두 for문의 복잡도를 합친 전체 복잡도는 N+M
 ```
 
 ```java
-int[] array = {{1, 6, 2, 5, 4},
+// 2차원 array의 길이 = N*M
+int[] array2D = {{1, 6, 2, 5, 4},
                {2, 5, 2, 3, 6},
                {3, 1, 2, 4, 5}};
 
 int sum = 0
-// 이중 for문, N번 반복이 M번 반복되므로 복잡도는 N*M
-for (int i = 0; i < array.length; i++) { 
-    for (int j = 0; j < array.length; j++) { 
-        sum += array[i][j];
+// 이중 for문, M번 반복이 N번 반복되므로 복잡도는 N*M
+for (int i = 0; i < array2D.length; i++) { 
+    for (int j = 0; j < array2D[i].length; j++) { 
+        sum += array2D[i][j];
     }
 }
 ```
