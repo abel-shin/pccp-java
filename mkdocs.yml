@@ -38,11 +38,6 @@ nav:
     - 'day4/section2.md'
     - 'day4/section3.md'
     - 'day4/section4.md'
-  - Day5:
-    - 'day5/section1.md'
-    - 'day5/section2.md'
-    - 'day5/section3.md'
-    - 'day5/section4.md'
   - 'endnote.md'
 extra_css:
   - stylesheets/extra.css
