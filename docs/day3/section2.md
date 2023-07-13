@@ -73,10 +73,7 @@ def quick_sort(x):
 ```
 
 
-## [실습] 하노이의 탑
+## 재귀 문제 풀이
 
 - [프로그래머스 하노이의 탑](https://programmers.co.kr/learn/courses/30/lessons/12946)
-
-## [실습] 괄호 변환 문제
-
 - [프로그래머스 카카오 BLIND 2020 괄호 변환 문제](https://programmers.co.kr/learn/courses/30/lessons/60058)
