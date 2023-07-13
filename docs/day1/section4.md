@@ -1,48 +1,131 @@
-# 알고리즘
+# 알고리즘의 복잡도
 
-## 학습 목표
+- 알고리즘이 복잡한 정도 (Complexity)는 크게 두 가지로 나누어 볼 수 있다.
+    - 공간 복잡도 vs. 시간 복잡도 -> 일반적으로 두 복잡도는 Trade-off 관계가 있다.
+- 알고리즘의 Complexity가 높을 수록 알고리즘을 구동하는 데에 더 많은 Cost가 소비된다.
 
-- 알고리즘이란 무엇인지 이해한다.
-- 알고리즘이 언제 필요한지 안다.
+## 공간 복잡도
 
-## 알고리즘이란
+- Space Complexity
+- 알고리즘이 동작하기 위해 필요한 공간(메모리)의 크기
+- 많은 경우, 연산의 중간 결과를 저장하기 위해 메모리를 소비한다.
+    - 중간 결과를 저장하여 중복 연산을 줄일 수 있다.
 
-### 알고리즘의 정의
+## 시간 복잡도
 
-- 문제를 해결하기 위한 여러 동작들의 모임.
+- Time Complexity (계산 복잡도; Computational Complexity)
+- 알고리즘이 동작하는 데에 걸리는 시간 또는 연산의 횟수
 
-### 알고리즘의 조건
+## 복잡도의 계산 방법
 
-- **입력(Input)**: 외부에서 제공되는 자료가 존재한다.
-- **출력(Output)**: 적어도 2가지 이상의 다른 결과를 출력해야 한다. 즉, 모든 입력에 대해 동일한 출력을 내서는 안된다.
-- **명확성(Definiteness)**: 수행 과정은 명확한 명령어로 구성되어 있어야 한다.
-- **유한성(Finiteness)**: 유한한 시간 안에 종료되어야 한다. 출력을 얻어내는 데에 무한한 시간이 걸려서는 안된다.
-- **효과성(Effectiveness)**: 모든 과정은 사람이 종이와 연필로 유한한 시간 안에 수행할 정도로 단순/명백해야 한다.
+- 반복문과 조건문을 고려하여 분기별로 실행 횟수를 분석을 통해 알아낼 수 있다.
 
-## 알고리즘의 필요성
+```java
+// array의 길이 = N
+int[] array = {1, 6, 2, 5, 4, 2, 5, 2, 3, 6, 3};
 
-### 서비스의 규모
+int sum = 0
+// 배열의 길이에 비례해서 반복하는 for문. 복잡도는 N
+for (int i = 0; i < array.length; i++) { 
+    sum += array[i];
+}
+```
 
-- 웹 애플리케이션이 서비스하는 규모는 점점 커지고 있다.
-- 십만 명과 백만 건의 Item 사이의 관계를 다루려면?
-    - 100,000 x 1,000,000 = 100,000,000,000개(**100기가**)의 관계를 다뤄야 한다.
-    - Naive한 방식으로 이러한 데이터를 실시간으로 다룰 수 없다!
+```java
+// array의 길이 = N, array2의 길이 = M
+int[] array = {1, 6, 2, 5, 4, 2, 5, 2, 3, 6, 3};
+int[] array2 = {4, 2, 1, 6, 7, 4, 3, 6};
 
-### 컴퓨터의 연산 속도와 비용
+int sum = 0
+// 배열의 길이에 비례해서 반복하는 for문. 복잡도는 N
+for (int i = 0; i < array.length; i++) { 
+    sum += array[i];
+}
 
-- 최근에는 많은 기업이 **클라우드로 서비스**를 제공한다.
-    - 수 많은 서버를 물리적으로 구매/유지/관리하는 비용을 아낄 수 있다.
-    - 서버 액세스의 급격한 증가에도 유연하게 대처할 수 있다.
-    - 보안과 안정성 등 소규모 기업이 직접 해결하기 어려운 문제를 쉽게 해결할 수 있다.
-- 연산 = 비용
-    - 클라우드 서버의 비용은 실제로 **임대한 서버의 Spec과 시간에 비례**한다.
-    - 더 좋은 알고리즘으로 **연산 속도를 개선할 경우, 더 낮은 서버 Spec으로도 동일한 서비스를 제공**할 수 있다.
-    - 동일한 Batch 작업에 **더 좋은 알고리즘을 사용할 경우, 동일한 서버 Spec으로 더 짧은 시간 서버를 임대**해도 동일한 결과를 얻어낼 수 있다.
+// 두 번째 반복, 복잡도는 M
+for (int i = 0; i < array2.length; i++) { 
+    sum += array2[i];
+}
 
-## Java와 알고리즘
+// 두 for문의 복잡도를 합친 전체 복잡도는 N+M
+```
 
-- Java는 High-Level Language로서, **알고리즘을 효율적으로 구현하기 위한 언어는 아니다.**
-    - 단, Java에 native 메소드를 이용해 C, C++로 구현된 라이브러리가 제공되고 있다.
-- Typed 언어이면서, 설계를 중시하는 언어이기 때문에 구현 속도는 조금 느린 편이나, 구동 속도는 중~중상 수준이다.
-- **OOP(Object-Oriented Programming), FP(Functional Programming)을 모두 지원**한다.
-    - **잘 짜여진 자료구조/알고리즘을 구현**할 수도 있고, **Mission Critical한 로직만 구현**할 수도 있다.
+```java
+// 2차원 array의 길이 = N*M
+int[] array2D = {{1, 6, 2, 5, 4},
+               {2, 5, 2, 3, 6},
+               {3, 1, 2, 4, 5}};
+
+int sum = 0
+// 이중 for문, M번 반복이 N번 반복되므로 복잡도는 N*M
+for (int i = 0; i < array2D.length; i++) { 
+    for (int j = 0; j < array2D[i].length; j++) { 
+        sum += array2D[i][j];
+    }
+}
+```
+
+## 복잡도의 종류
+
+- 알고리즘 동작 상황에 따른 구분
+    - **최악의 경우**
+    - '최선의 경우'
+    - '평균적인 경우'
+- 일반적으로 **최악의 경우** 에 대해 알고리즘 복잡도를 정의한다.
+    - ex) 리스트에서의 개체 삽입
+
+![리스트 개체 삽입](img/section4/1.png)
+
+## Asymptotic Notations
+
+![리스트 개체 삽입](img/section4/2.png)
+
+- 점진적(asymptotic) 표기 방법
+- 알고리즘에 입력되는 자료의 개수(![n](https://render.githubusercontent.com/render/math?math=n))가 충분히 많다고 가정
+    - 입력 자료의 개수가 작은 경우, 비교하는 의미가 크게 없기 때문
+- **성능 평가에 공평한 비교** 를 하기 위한 성능 분석 기준으로 사용
+    - 동작 시스템, 데이터 크기 등을 배제하고 성능을 비교하기 위해 필요
+- 상한, 하한, 상한과 하한의 교집합으로 정의
+
+### Big-O Notation
+
+![리스트 개체 삽입](img/section4/3.png)
+
+- 복잡도 순위
+    - ![O(1) < O(logn) < O(n) < O(nlogn) < O(n^2) < O(2^n) < O(n!)](https://render.githubusercontent.com/render/math?math=O(1)%20%3C%20O(logn)%20%3C%20O(n)%20%3C%20O(nlogn)%20%3C%20O(n%5E2)%20%3C%20O(2%5En)%20%3C%20O(n!))
+        - 상수, 로그, 선형, 선형로그, 다항식(제곱), 지수, 팩토리얼
+- ![f(n)](https://render.githubusercontent.com/render/math?math=f(n)) 의 Big-O Notation 정의:
+    - ![O(g(n)) = \{ f(n)|0 \le f(n) \le c \cdot g(n)\space \text{for all}\space \space n \ge n_0 > 0 \}\space \space \text{for} \space \exists c > 0.](https://render.githubusercontent.com/render/math?math=O(g(n))%20%3D%20%5C%7B%20f(n)%7C0%20%5Cle%20f(n)%20%5Cle%20c%20%5Ccdot%20g(n)%5Cspace%20%5Ctext%7Bfor%20all%7D%5Cspace%20%5Cspace%20n%20%5Cge%20n_0%20%3E%200%20%5C%7D%5Cspace%20%5Cspace%20%5Ctext%7Bfor%7D%20%5Cspace%20%5Cexists%20c%20%3E%200.)
+- 예시
+    - ![3(n+1)^2 \in O(n^2)](https://render.githubusercontent.com/render/math?math=3(n%2B1)%5E2%20%5Cin%20O(n%5E2))
+    - ![n^{1.998} \in O(n^2)](https://render.githubusercontent.com/render/math?math=n%5E%7B1.998%7D%20%5Cin%20O(n%5E2))
+    - ![n^2 + n\log n + 3 \in O(n^2)](https://render.githubusercontent.com/render/math?math=n%5E2%20%2B%20n%5Clog%20n%20%2B%203%20%5Cin%20O(n%5E2))
+    - ![n^2 \in O(n^2)](https://render.githubusercontent.com/render/math?math=n%5E2%20%5Cin%20O(n%5E2))
+    - ![n \in O(n^2)](https://render.githubusercontent.com/render/math?math=n%20%5Cin%20O(n%5E2))
+
+### Big-Omega  Notation
+
+![리스트 개체 삽입](img/section4/4.png)
+
+- ![\text{Ω}(n)](https://render.githubusercontent.com/render/math?math=%5Ctext{Ω}(n)),  ![\text{Ω}(n^2)](https://render.githubusercontent.com/render/math?math=%5Ctext{Ω}(n%5E2)), ![\text{Ω}(n\log n)](https://render.githubusercontent.com/render/math?math=%5Ctext{Ω}(n%5Clog%20n)) ...
+- ![f(n)](https://render.githubusercontent.com/render/math?math=f(n)) 의 Big-Omega Notation 정의:
+    - ![\text{Ω}(g(n)) = \{ f(n)|0 \le c \cdot g(n) \le f(n) \space \space  \text{for all} \space n \ge n_0 > 0 \}\space \space \text{for} \space \space \exists c > 0.](https://render.githubusercontent.com/render/math?math=%5Ctext{Ω}(g(n))%20%3D%20%5C%7B%20f(n)%7C0%20%5Cle%20c%20%5Ccdot%20g(n)%20%5Cle%20f(n)%20%5Cspace%20%5Cspace%20%20%5Ctext%7Bfor%20all%7D%20%5Cspace%20n%20%5Cge%20n_0%20%3E%200%20%5C%7D%5Cspace%20%5Cspace%20%5Ctext%7Bfor%7D%20%5Cspace%20%5Cspace%20%5Cexists%20c%20%3E%200.)
+- 예시
+    - ![3(n+1)^2 \in \text{Ω}(n^2)](https://render.githubusercontent.com/render/math?math=3(n%2B1)%5E2%20%5Cin%20%5Ctext{Ω}(n%5E2))
+    - ![n^{2.002} \in \text{Ω}(n^2)](https://render.githubusercontent.com/render/math?math=n%5E%7B2.002%7D%20%5Cin%20%5Ctext{Ω}(n%5E2))
+    - ![n^2 + NlogN + 3 \in \text{Ω}(n^2)](https://render.githubusercontent.com/render/math?math=n%5E2%20%2B%20NlogN%20%2B%203%20%5Cin%20%5Ctext{Ω}(n%5E2))
+    - ![n^2 \in \text{Ω}(n^2)](https://render.githubusercontent.com/render/math?math=n%5E2%20%5Cin%20%5Ctext{Ω}(n%5E2))
+    - ![n^3 \in \text{Ω}(n^2)](https://render.githubusercontent.com/render/math?math=n%5E3%20%5Cin%20%5Ctext{Ω}(n%5E2))
+
+### Big-Theta Notation
+
+![리스트 개체 삽입](img/section4/5.png)
+
+- ![\text{Θ}(n)](https://render.githubusercontent.com/render/math?math=%5Ctext{Θ}(n)),  ![\text{Θ}(n^2)](https://render.githubusercontent.com/render/math?math=%5Ctext{Θ}(n%5E2)), ![\text{Θ}(n\log n)](https://render.githubusercontent.com/render/math?math=%5Ctext{Θ}(n%5Clog%20n)) ...
+- ![f(n)](https://render.githubusercontent.com/render/math?math=f(n)) 의 Big-Theta Notation 정의:
+    - ![\text{Θ}(g(n)) = \{ f(n)|0 \le c_1 \cdot g(n) \le f(n) \le c_2 \cdot g(n)\space\space \text{for all}\space n \ge n_0 > 0 \}\space \space \text{for}\space \space \exists c_1 > 0,\space\exists c_2 > 0.](https://render.githubusercontent.com/render/math?math=%5Ctext{Θ}(g(n))%20%3D%20%5C%7B%20f(n)%7C0%20%5Cle%20c_1%20%5Ccdot%20g(n)%20%5Cle%20f(n)%20%5Cle%20c_2%20%5Ccdot%20g(n)%5Cspace%5Cspace%20%5Ctext%7Bfor%20all%7D%5Cspace%20n%20%5Cge%20n_0%20%3E%200%20%5C%7D%5Cspace%20%5Cspace%20%5Ctext%7Bfor%7D%5Cspace%20%5Cspace%20%5Cexists%20c_1%20%3E%200%2C%5Cspace%5Cexists%20c_2%20%3E%200.)
+- 예시
+    - ![3(n+1)^2 \in \text{Θ}(n^2)](https://render.githubusercontent.com/render/math?math=3(n%2B1)%5E2%20%5Cin%20%5Ctext{Θ}(n%5E2))
+    - ![n^2 + n\log n + 3 \in \text{Θ}(n^2)](https://render.githubusercontent.com/render/math?math=n%5E2%20%2B%20n%5Clog%20n%20%2B%203%20%5Cin%20%5Ctext{Θ}(n%5E2))
+    - ![n^2 \in \text{Θ}(n^2)](https://render.githubusercontent.com/render/math?math=n%5E2%20%5Cin%20%5Ctext{Θ}(n%5E2))
+    - ![n^3 \in \text{Θ}(n^3)](https://render.githubusercontent.com/render/math?math=n%5E3%20%5Cin%20%5Ctext{Θ}(n%5E3))
