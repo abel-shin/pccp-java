@@ -33,7 +33,7 @@
     for (int i = 0; i < strings.length; i++) {
         s += strings + " "; // 이 라인이 실행될 때 마다 새로운 문자열을 계속 생성
     }
-    System.out.println(s);
+    System.out.println(s); // I want to concatenate all strings
     ```
 
 - StringBuilder를 사용하면 마지막에 단 한번의 문자열만을 생성하여 효율적으로 동작한다.
@@ -47,7 +47,7 @@
         sb.append(" ");
     }
     String s = sb.toString();
-    System.out.println(s);
+    System.out.println(s); // I want to concatenate all strings
     ```
 
 - 배열이나 리스트에 있는 문자열들을 결합하려면 `join` 메소드를 사용할 수도 있다. (Java8 and above)
@@ -55,15 +55,15 @@
     ``` java
     String[] strings = {"I", "want", "to", "concatenate", "all", "strings"};
     String s = String.join(" ", strings);
-    System.out.println(s);
+    System.out.println(s); // I want to concatenate all strings
     ```
 
 - Stream에 있는 문자열들을 결합하려면 `Collectors.joining()`을 사용할 수도 있다.
 
     ``` java
     String[] strings = {"I", "want", "to", "concatenate", "all", "strings"};
-    String s = Arrays.stream(strings).collect(Collectors.joining());
-    System.out.println(s);
+    String s = Arrays.stream(strings).collect(Collectors.joining(" "));
+    System.out.println(s); // I want to concatenate all strings
     ```
 
 

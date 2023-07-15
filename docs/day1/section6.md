@@ -91,4 +91,4 @@
 
 ## 해시 테이블 문제 풀이
 
-- [프로그래머스 베스트앨범 문제](https://programmers.co.kr/learn/courses/30/lessons/42579)
+- [프로그래머스 베스트앨범 문제](https://programmers.co.kr/learn/courses/30/lessons/42579){:target="_blank"}

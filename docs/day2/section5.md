@@ -25,6 +25,35 @@
     - 배열을 사용하므로, 크기가 정해져 있다.
     - 메모리 상에서 연속으로 존재하기 떄문에 동작 속도가 빠르다.
 
-TODO: 스택을 자바에서 사용하는 방법
+## Java에서 스택의 사용
+
+- `Stack<T>` 제네릭 클래스가 있으나, **속도가 아주 느리므로 쓰지 않는다.**
+
+    ``` java title="Don't use this"
+    Stack<Integer> stack = new Stack<>();
+    stack.push(1);
+    stack.push(12);
+    stack.push(30);
+
+    while (!stack.isEmpty()) {
+        int value = stack.pop();
+        System.out.println(value); // 30, 12, 1
+    }
+    ```
+
+- 몇가지 기능이 추가되어 있는 `Deque<T>` 제네릭 인터페이스와 `ArrayDeque<T>` 제네릭 클래스를 사용한다.
+
+    ``` java
+    Deque<Integer> stack = new ArrayDeque<>();
+    stack.push(1);
+    stack.push(12);
+    stack.push(30);
+
+    while (!stack.isEmpty()) {
+        int value = stack.pop();
+        System.out.println(value); // 30, 12, 1
+    }
+    ```
+
 
 TODO: 스택 문제 2~3개
