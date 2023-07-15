@@ -21,7 +21,7 @@
 ### 버블 정렬 (Bubble Sort)
 
 ![버블 정렬](https://upload.wikimedia.org/wikipedia/commons/3/37/Bubble_sort_animation.gif)
-[출처](https://upload.wikimedia.org/wikipedia/commons/3/37/Bubble_sort_animation.gif)
+[출처](https://upload.wikimedia.org/wikipedia/commons/3/37/Bubble_sort_animation.gif){:target="_blank"}
 
 - 알고리즘
     - 인접한 두 원소를 검사하여 정렬한다.
@@ -49,7 +49,7 @@ def bubble_sort(x):
 ### 삽입 정렬 (Insertion Sort)
 
 ![삽입 정렬](https://upload.wikimedia.org/wikipedia/commons/2/25/Insertion_sort_animation.gif)
-[출처](https://upload.wikimedia.org/wikipedia/commons/2/25/Insertion_sort_animation.gif)
+[출처](https://upload.wikimedia.org/wikipedia/commons/2/25/Insertion_sort_animation.gif){:target="_blank"}
 
 - 알고리즘
     - 앞 부분의 이미 정렬된 영역과, 아직 정렬되지 않은 영역으로 나눈다.
@@ -75,7 +75,7 @@ def insert_sort(x):
 ### 선택 정렬 (Selection Sort)
 
 ![선택 정렬](https://upload.wikimedia.org/wikipedia/commons/b/b0/Selection_sort_animation.gif)
-[출처](https://upload.wikimedia.org/wikipedia/commons/b/b0/Selection_sort_animation.gif)
+[출처](https://upload.wikimedia.org/wikipedia/commons/b/b0/Selection_sort_animation.gif){:target="_blank"}
 
 - 알고리즘
     - 주어진 리스트 중 최소 값을 찾아, 맨 앞의 값과 교체한다.
@@ -103,7 +103,7 @@ def selection_sort(x):
 ### 합병 정렬 (Merge Sort)
 
 ![합병 정렬](https://upload.wikimedia.org/wikipedia/commons/c/cc/Merge-sort-example-300px.gif)
-[출처](https://upload.wikimedia.org/wikipedia/commons/c/cc/Merge-sort-example-300px.gif)
+[출처](https://upload.wikimedia.org/wikipedia/commons/c/cc/Merge-sort-example-300px.gif){:target="_blank"}
 
 - 알고리즘
     - 정렬되지 않은 리스트는 두 부분 리스트로 나눈다.
@@ -119,7 +119,7 @@ def selection_sort(x):
 ### 퀵 정렬 (Quick Sort)
 
 ![퀵 정렬](https://upload.wikimedia.org/wikipedia/commons/6/6a/Sorting_quicksort_anim.gif)
-[출처](https://upload.wikimedia.org/wikipedia/commons/6/6a/Sorting_quicksort_anim.gif)
+[출처](https://upload.wikimedia.org/wikipedia/commons/6/6a/Sorting_quicksort_anim.gif){:target="_blank"}
 
 - 알고리즘
     - 리스트에서 하나의 pivot을 선택한다.

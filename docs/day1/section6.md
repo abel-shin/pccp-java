@@ -60,8 +60,35 @@
 
 ## Java의 해시 자료구조
 
-TODO: HashSet, HashMap 등 설명
+- 해시 셋: Java에서 가장 많이 쓰이는 집합 자료 구조
+    - 주로 `Set<T>` 제네릭 인터페이스와 `HashSet<T>` 제네릭 클래스를 사용한다.
 
-## [실습] 해시 테이블 문제
+    ``` java
+    Set<Integer> set = new HashSet<>();
+    set.add(4);
+    set.add(10);
+    set.add(1);
+    set.add(4); // 기존에 4가 중복되어 있으므로 삽입되지 않음
 
-- [프로그래머스 베스트앨범 문제](https://programmers.co.kr/learn/courses/30/lessons/42579)
+    set.stream().forEach(System.out::println); // 4, 10, 1
+    ```
+
+
+- 해시 맵: Java에서 가장 많이 쓰이는 해시 테이블 자료 구조
+    - 주로 `Map<K, V>` 제네릭 인터페이스와 `HashMap<K, V>` 제네릭 클래스를 사용한다.
+
+    ``` java
+    Map<String, Integer> map = new HashMap<>();
+    map.put("사과", 1000);
+    map.put("바나나", 2000);
+    map.put("포도", 3000);
+    map.put("바나나", 1500); // 기존 "바나나"의 value(2000)를 덮어씀
+
+    for (String key: map.keySet()) {
+        System.out.println(key + " " + map.get(key));  // 사과 1000, 바나나 1500, 포도 3000
+    }
+    ```
+
+## 해시 테이블 문제 풀이
+
+- [프로그래머스 베스트앨범 문제](https://programmers.co.kr/learn/courses/30/lessons/42579){:target="_blank"}
