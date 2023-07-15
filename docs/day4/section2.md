@@ -14,7 +14,7 @@
 ![트리](img/section2/2.png)
 
 - 트리는 방향성 비순환 그래프 DAG (Directed Acyclic Graph)의 일종으로 볼 수 있다.
-  - 트리에는 회로(Cycle)이 없으며, 루트에서 리프 노드로의 방향성(Direction)이 존재한다.
+    - 트리에는 회로(Cycle)이 없으며, 루트에서 리프 노드로의 방향성(Direction)이 존재한다.
 
 ## 그래프의 종류
 
@@ -44,15 +44,18 @@
 
 - 너비 우선 탐색 (Breadth-First Search)
 ![BFS](img/section2/7.png)
-  - 두 Vertex 사이의 최단 경로 or 임의의 경로를 찾을 때 사용
-  - 트리와 달리 특정 Node의 방문 여부 `visited`를 검사해야 함
-  - Queue를 이용하여 반복적(Iterative)인 방법으로 손쉽게 구현 가능
+    - 두 Vertex 사이의 최단 경로 or 임의의 경로를 찾을 때 사용
+    - 트리와 달리 특정 Node의 방문 여부 `visited`를 검사해야 함
+    - Queue를 이용하여 반복적(Iterative)인 방법으로 손쉽게 구현 가능
 - 깊이 우선 탐색 (Depth-First Search)
 ![DFS](img/section2/8.png)
-  - 모든 Vertex를 방문하고자 할 때 주로 사용 (순회)
-  - 트리와 달리 특정 Node의 방문 여부 `visited`를 검사해야 함
-  - 재귀(Recursive) 함수를 이용하여 전위 순회의 형태로 구현
+    - 모든 Vertex를 방문하고자 할 때 주로 사용 (순회)
+    - 트리와 달리 특정 Node의 방문 여부 `visited`를 검사해야 함
+    - 재귀(Recursive) 함수를 이용하여 전위 순회의 형태로 구현
 
+    !!! note
+
+        그래프 문제는 주로 BFS, DFS로 출제된다. 그 외에는 Dijkstra, MST 등 특정 알고리즘을 사용하는 문제가 많이 출제 된다.
 
 ## 그래프 문제 예시
 
