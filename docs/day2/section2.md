@@ -16,6 +16,10 @@
 - In-place 알고리즘: 정렬을 수행하는 데에 추가 메모리가 O(logN) 이하로 사용되는 알고리즘
 - Stable 알고리즘: 동일 값의 정렬 전후에 순서가 유지되는 알고리즘
 
+!!! note
+
+    코딩테스트를 준비하기 위해 정렬 알고리즘을 암기할 필요는 없다. 대신 라이브러리로 제공되는 정렬 방법을 사용할 줄 알아야 한다.
+
 ## 기본 정렬 알고리즘
 
 ### 버블 정렬 (Bubble Sort)
@@ -32,18 +36,24 @@
     - 최선의 경우: O(n)
     - 평균적인 경우: O(n^2)
 
-```python
-def bubble_sort(x):
-    length = len(x)-1
-    for i in range(length):
-        swapped = False
-        for j in range(length-i):
-            if x[j] > x[j+1]:
-                swapped = True
-                x[j], x[j+1] = x[j+1], x[j]
-        if swapped is False:
-            break
-    return x
+``` java title="bubbleSort.java"
+void bubbleSort(int[] x) {
+    int n = x.length - 1;
+    for (int i = 0; i < n; i++) {
+        boolean swapped = false;
+        for (int j = 0; j < n-i; j++) {
+            if (x[j] > x[j+1]) {
+                swapped = true;
+                int temp = x[j+1];
+                x[j+1] = x[j];
+                x[j] = temp;
+            }
+        }
+        if (!swapped) {
+            break;
+        }
+    }
+}
 ```
 
 ### 삽입 정렬 (Insertion Sort)
@@ -60,16 +70,18 @@ def bubble_sort(x):
     - 최선의 경우: O(n)
     - 평균적인 경우: O(n^2)
 
-```python
-def insert_sort(x):
-    for i in range(1, len(x)):
-        j = i - 1
-        key = x[i]
-        while x[j] > key and j >= 0:
-            x[j+1] = x[j]
-            j = j - 1
-        x[j+1] = key
-    return x
+``` java title="insertionSort.java"
+void insertionSort(int[] x) {
+    for (int i = 1; i < x.length; i++) {
+        int j = i - 1;
+        int key = x[i];
+        while (x[j] > key && j >= 0) {
+            x[j+1] = x[j];
+            j = j - 1;
+        }
+        x[j+1] = key;
+    }
+}
 ```
 
 ### 선택 정렬 (Selection Sort)
@@ -86,17 +98,23 @@ def insert_sort(x):
     - 최선의 경우: O(n^2)
     - 평균적인 경우: O(n^2)
 
-```python
-def selection_sort(x):
-    length = len(x)
-    for i in range(length-1):
-        index_min = i
-        for j in range(i+1, length):
-            if x[index_min] > x[j]:
-                index_min = j
-        x[i], x[index_min] = x[index_min], x[i]
-    return x
+``` java title="selectionSort.java"
+void selectionSort(int[] x) {
+    int n = x.length;
+    for (int i = 0; i < n-1; i++) {
+        int indexMin = i;
+        for (int j = i+1; j < n; j++) {
+            if (x[indexMin] > x[j]) {
+                indexMin = j;
+            }
+            int temp = x[indexMin];
+            x[indexMin] = x[i];
+            x[i] = temp;
+        }
+    }
+}
 ```
+
 
 ## 심화 정렬 알고리즘
 
@@ -135,7 +153,7 @@ def selection_sort(x):
 
 ### 팀소트 (Timsort)
 
-- Java SE 7, Android, GNU Octave, Chrome V8, Swift, Rust, Python 등에 적용된 정렬 알고리즘
+- **Java SE 7**, Android, GNU Octave, Chrome V8, Swift, Rust, Python 등에 적용된 정렬 알고리즘
 - Insertion Sort와 Merge Sort를 결합하여 만든 알고리즘
     - 작은 영역에 대해서 Insertion Sort를 수행하고, 이것을 Merge Sort하여 최적화
 - 공간복잡도: O(n)

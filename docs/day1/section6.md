@@ -70,7 +70,7 @@
     set.add(1);
     set.add(4); // 기존에 4가 중복되어 있으므로 삽입되지 않음
 
-    set.stream().forEach(System.out::println); // 4, 10, 1
+    set.stream().forEach(System.out::println); // 4, 10, 1 (순서 무관)
     ```
 
 
@@ -85,10 +85,11 @@
     map.put("바나나", 1500); // 기존 "바나나"의 value(2000)를 덮어씀
 
     for (String key: map.keySet()) {
-        System.out.println(key + " " + map.get(key));  // 사과 1000, 바나나 1500, 포도 3000
+        System.out.println(key + " " + map.get(key));  // 사과 1000, 바나나 1500, 포도 3000 (순서 무관)
     }
     ```
 
 ## 해시 테이블 문제 풀이
 
+- [프로그래머스 완주하지 못한 선수 문제](https://school.programmers.co.kr/learn/courses/30/lessons/42576){:target="_blank"}
 - [프로그래머스 베스트앨범 문제](https://programmers.co.kr/learn/courses/30/lessons/42579){:target="_blank"}
