@@ -34,6 +34,20 @@
     - 물리적인 메모리를 모두 사용하기 전까지 Overflow가 발생하지 않음
 
 
-TODO: 큐를 자바에서 사용하는 방법
+## Java에서 큐의 사용
+
+- 일반적으로 `Queue<T>` 제네릭 인터페이스와 `LinkedList<T>` 제네릭 클래스 사용
+
+    ``` java
+    Queue<Integer> queue = new LinkedList<>();
+    queue.put(1);
+    queue.put(12);
+    queue.put(30);
+
+    while (!queue.isEmpty()) {
+        int value = queue.poll();
+        System.out.println(value); // 1, 12, 30
+    }
+    ```
 
 TODO: 큐 쓰는 1~2문제 선정
