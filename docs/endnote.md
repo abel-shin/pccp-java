@@ -6,4 +6,4 @@ TODO: 공부한 내용 간단히 Wrap-up
 
 ## 앞으로 공부할 내용
 
-TODO: DP 포함하여 PCCP 시험 전에 공부해야 할 내용 제시
+TODO: PQ, DP 포함하여 PCCP 시험 전에 공부해야 할 내용 제시
