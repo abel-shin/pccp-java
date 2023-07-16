@@ -163,6 +163,15 @@ void selectionSort(int[] x) {
     - 평균적인 경우: O(nlogn)
 
 
-TODO: 정렬이 활용되는 문제 제시
+## 정렬의 활용 예
 
-TODO: 정렬 문제 1~2개 선정
+- 정렬 알고리즘은 그 자체만으로 출제되기 보다는, 다른 문제를 해결 하는 데에 보조적으로 쓰인다.
+    - 탐욕 알고리즘에서 국소최적값을 찾기 위해 활용
+    - 특이한 조건으로 값의 순서를 찾아야 할 때 `Comparator`를 적절히 구현하여 활용
+    - 여러개의 기준을 동시에 만족하도록 정렬할 때 활용
+
+
+## 정렬 문제
+
+- [프로그래머스 문자열 내 마음대로 정렬하기 문제](https://school.programmers.co.kr/learn/courses/30/lessons/12915){:target="_blank"}
+- [프로그래머스 가장 큰 수 문제](https://school.programmers.co.kr/learn/courses/30/lessons/42746){:target="_blank"}
