@@ -75,4 +75,5 @@
 
 ## 탐욕법 문제 풀이
 
-TODO: 그리디 문제 2~3개 선정
+- [프로그래머스 체육복 문제](https://school.programmers.co.kr/learn/courses/30/lessons/42862){:target="_blank"}
+- [프로그래머스 구명보트 문제](https://school.programmers.co.kr/learn/courses/30/lessons/42885){:target="_blank"}
