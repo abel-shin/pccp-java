@@ -69,4 +69,5 @@
 
 ## 문자열 문제 풀이
 
-TODO: 프로그래머스 문자열 문제 2~3개 정도 다루기
+- [프로그래머스 문자열 밀기 문제](https://school.programmers.co.kr/learn/courses/30/lessons/120921){:target="_blank"}
+- [프로그래머스 문자열 나누기 문제](https://school.programmers.co.kr/learn/courses/30/lessons/140108){:target="_blank"}
