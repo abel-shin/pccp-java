@@ -10,7 +10,7 @@
 
 ### 시뮬레이션 문제 예시
 
-TODO: 간단한 시뮬레이션 문제 하나 제시
+- [프로그래머스 공원 산책 문제](https://school.programmers.co.kr/learn/courses/30/lessons/172928){:target="_blank"}
 
 ## 구현
 
@@ -18,13 +18,13 @@ TODO: 간단한 시뮬레이션 문제 하나 제시
 
 - 주어진 조건에 맞게 프로그램을 구현하는 문제
 - 다양한 테스트케이스에서 성공적으로 동작하는 것이 핵심
-- 효율적으로 구현하여 시간 초과를 해결하는 것이 핵심
+- 정확한 구현이 필수적이며, 종종 효율적인 구현도 요구됨
 
 ### 구현 문제 예시
 
-TODO: 간단한 구현 문제 하나 제시
+- [카카오 표병합 문제](https://school.programmers.co.kr/learn/courses/30/lessons/150366){:target="_blank"}
 
 ## 시뮬레이션/구현 문제 풀이
 
-TODO: 1차원 배열 기반 문제 1건
-TODO: 2차원 배열 기반 문제 1건 (4방향 or 8방향 탐색)
+- [카카오 크레인 인형뽑기 게임 문제](https://school.programmers.co.kr/learn/courses/30/lessons/64061){:target="_blank"}
+- [프로그래머스 리코쳇 로봇 문제](https://school.programmers.co.kr/learn/courses/30/lessons/169199){:target="_blank"}
