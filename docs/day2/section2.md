@@ -170,6 +170,56 @@ void selectionSort(int[] x) {
     - 특이한 조건으로 값의 순서를 찾아야 할 때 `Comparator`를 적절히 구현하여 활용
     - 여러개의 기준을 동시에 만족하도록 정렬할 때 활용
 
+### Comparable을 이용한 정렬
+
+- `Comparable` 인터페이스를 구현하여 정렬 가능한 객체를 만들 수 있다.
+- 객체지향적인(OOP) 방법으로, 구현해야 하는 코드 양이 많은 편
+
+    ``` java
+    class Item implements Comparable<Item> {
+        int x;
+        int y;
+
+        public Item(int x, int y) {
+            this.x = x;
+            this.y = y;
+        }
+
+        public int compareTo(o) {
+            if (this.x == o.x) {      // x가 같으면
+                return this.y - o.y;  // y 기준으로 오름차순
+            } else {                  // x가 다르면
+                return o.x - this.x;  // x 기준으로 내림차순
+            }
+        }
+    }
+
+    ...
+
+    List<Item> items = new List<>();
+    ...
+    items.sort();
+    ...
+
+    ```
+
+### Comparator를 이용한 정렬
+
+- `Comparator` 클래스를 구현하여 정렬 방법을 결정할 수 있다.
+- 람다식을 이용한 함수형 프로그래밍(FP) 방법으로 적은 코드 작성으로도 구현이 가능
+
+    ``` java
+    List<int[]> items = new List<>();
+    ...
+    items.sort((a, b) -> {
+        if (a[0] == b[0]) {
+            return a[1] - b[1];
+        } else {
+            return b[0] - a[0];
+        }
+    });
+
+    ```
 
 ## 정렬 문제
 
