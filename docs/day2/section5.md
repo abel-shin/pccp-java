@@ -62,5 +62,5 @@
 
 ## 스택 문제 해결
 
-- [프로그래머스 문제](){:target="_blank"}
-- [프로그래머스 문제](){:target="_blank"}
+- [프로그래머스 올바른 괄호 문제](https://school.programmers.co.kr/learn/courses/30/lessons/12909){:target="_blank"}
+- [프로그래머스 주식 가격 문제](https://school.programmers.co.kr/learn/courses/30/lessons/42584){:target="_blank"}
