@@ -196,7 +196,7 @@ void selectionSort(int[] x) {
 
     ...
 
-    List<Item> items = new List<>();
+    List<Item> items = new ArrayList<>();
     ...
     items.sort();
     ...
@@ -209,7 +209,7 @@ void selectionSort(int[] x) {
 - 람다식을 이용한 함수형 프로그래밍(FP) 방법으로 적은 코드 작성으로도 구현이 가능
 
     ``` java
-    List<int[]> items = new List<>();
+    List<int[]> items = new ArrayList<>();
     ...
     items.sort((a, b) -> {
         if (a[0] == b[0]) {
