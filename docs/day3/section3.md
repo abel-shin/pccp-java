@@ -82,7 +82,7 @@
 
 ## 트리 문제 예시
 
-- [프로그래머스 문제](){:target="_blank"}
+- [카카오 양과 늑대 문제](https://school.programmers.co.kr/learn/courses/30/lessons/92343){:target="_blank"}
 
 !!! note
 
@@ -90,5 +90,5 @@
 
 ## 트리 문제 풀이
 
-- [프로그래머스 문제](){:target="_blank"}
-- [프로그래머스 문제](){:target="_blank"}
+- [프로그래머스 가장 먼 노드 문제](https://school.programmers.co.kr/learn/courses/30/lessons/49189){:target="_blank"}
+- [프로그래머스 순위 문제](https://school.programmers.co.kr/learn/courses/30/lessons/49191){:target="_blank"}
