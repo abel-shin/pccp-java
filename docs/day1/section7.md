@@ -27,4 +27,4 @@
 ## 시뮬레이션/구현 문제 풀이
 
 - [카카오 크레인 인형뽑기 게임 문제](https://school.programmers.co.kr/learn/courses/30/lessons/64061){:target="_blank"}
-- [프로그래머스 다음 큰 숫자 문제](https://school.programmers.co.kr/learn/courses/30/lessons/12911){:target="_blank"}
+- [프로그래머스 나누어 떨어지는 숫자 배열 문제](https://school.programmers.co.kr/learn/courses/30/lessons/12910){:target="_blank"}
