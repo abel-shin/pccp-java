@@ -90,5 +90,5 @@
 
 ## 트리 문제 풀이
 
-- [프로그래머스 가장 먼 노드 문제](https://school.programmers.co.kr/learn/courses/30/lessons/49189){:target="_blank"}
-- [프로그래머스 순위 문제](https://school.programmers.co.kr/learn/courses/30/lessons/49191){:target="_blank"}
+- [프로그래머스 타겟 넘버 문제](https://school.programmers.co.kr/learn/courses/30/lessons/43165){:target="_blank"}
+- [프로그래머스 숫자 변환하기 문제](https://school.programmers.co.kr/learn/courses/30/lessons/154538){:target="_blank"}
