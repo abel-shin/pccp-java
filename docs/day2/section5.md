@@ -62,5 +62,5 @@
 
 ## 스택 문제 해결
 
-- [프로그래머스 올바른 괄호 문제](https://school.programmers.co.kr/learn/courses/30/lessons/12909){:target="_blank"}
-- [프로그래머스 주식 가격 문제](https://school.programmers.co.kr/learn/courses/30/lessons/42584){:target="_blank"}
+- [프로그래머스 올바른 괄호 문제](https://school.programmers.co.kr/learn/courses/30/lessons/12909){:target="_blank"} ([답안 코드](https://github.com/abel-shin/pccp-java/blob/main/src/day2/Solution7.java){:target="_blank"})
+- [프로그래머스 주식 가격 문제](https://school.programmers.co.kr/learn/courses/30/lessons/42584){:target="_blank"} ([답안 코드](https://github.com/abel-shin/pccp-java/blob/main/src/day2/Solution8.java){:target="_blank"})
