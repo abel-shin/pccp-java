@@ -1,11 +1,17 @@
-package day4;
+package day3;
 
 // https://school.programmers.co.kr/learn/courses/30/lessons/92343
 
 import java.util.Set;
 import java.util.HashSet;
 
-class Solution8 {
+/*
+ * DFS를 이용한 완전 탐색 문제입니다.
+ * 탐색의 기준이 현재 노드가 아닌, 지금까지 탐색한 모든 노드의 자식이 됩니다.
+ * 늑대와 양의 수가 같아지면 해당 방향으로는 더이상 탐색하지 않습니다.
+ */
+
+class Solution3 {
     int[] info;
     Set<Integer>[] adj;
     int answer = 0;

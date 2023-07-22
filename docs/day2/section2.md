@@ -223,5 +223,5 @@ void selectionSort(int[] x) {
 
 ## 정렬 문제
 
-- [프로그래머스 문자열 내 마음대로 정렬하기 문제](https://school.programmers.co.kr/learn/courses/30/lessons/12915){:target="_blank"}
-- [프로그래머스 가장 큰 수 문제](https://school.programmers.co.kr/learn/courses/30/lessons/42746){:target="_blank"}
+- [프로그래머스 문자열 내 마음대로 정렬하기 문제](https://school.programmers.co.kr/learn/courses/30/lessons/12915){:target="_blank"} ([답안 코드](https://github.com/abel-shin/pccp-java/blob/main/src/day2/Solution1.java){:target="_blank"})
+- [프로그래머스 가장 큰 수 문제](https://school.programmers.co.kr/learn/courses/30/lessons/42746){:target="_blank"} ([답안 코드](https://github.com/abel-shin/pccp-java/blob/main/src/day2/Solution2.java){:target="_blank"})
