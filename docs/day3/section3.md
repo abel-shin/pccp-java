@@ -80,6 +80,11 @@
 
         완전이진트리(CBT)는 보통 배열을 이용해 구현하며, 완전이진트리가 아닌 일반적인 경우에 노드로 구현하는 경우가 많다.
 
+
+## 트리의 탐색 연습
+
+- [BFS/DFS 연습](https://github.com/abel-shin/pccp-java/blob/main/src/day3/Practice1.java){:target="_blank"}  ([답안 코드](https://github.com/abel-shin/pccp-java/blob/main/src/day4/Practice2.java){:target="_blank"})
+
 ## 트리 문제 예시
 
 - [카카오 양과 늑대 문제](https://school.programmers.co.kr/learn/courses/30/lessons/92343){:target="_blank"}

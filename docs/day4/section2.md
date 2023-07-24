@@ -57,6 +57,10 @@
 
         그래프 문제는 주로 BFS, DFS로 출제된다. 그 외에는 Dijkstra, MST 등 특정 알고리즘을 사용하는 문제가 많이 출제 된다.
 
+## 트리의 탐색 연습
+
+- [BFS/DFS 연습](https://github.com/abel-shin/pccp-java/blob/main/src/day4/Practice1.java){:target="_blank"} ([답안 코드](https://github.com/abel-shin/pccp-java/blob/main/src/day4/Pratice2.java){:target="_blank"})
+
 ## 그래프 문제 풀이
 
 - [프로그래머스 가장 먼 노드 문제](https://school.programmers.co.kr/learn/courses/30/lessons/49189){:target="_blank"} ([답안 코드](https://github.com/abel-shin/pccp-java/blob/main/src/day4/Solution1.java){:target="_blank"})
