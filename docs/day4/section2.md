@@ -59,7 +59,7 @@
 
 ## 그래프의 탐색 연습
 
-- [BFS/DFS 연습](https://github.com/abel-shin/pccp-java/blob/main/src/day4/Practice1.java){:target="_blank"} ([답안 코드](https://github.com/abel-shin/pccp-java/blob/main/src/day4/Pratice2.java){:target="_blank"})
+- [BFS/DFS 연습](https://github.com/abel-shin/pccp-java/blob/main/src/day4/Practice1.java){:target="_blank"} ([답안 코드](https://github.com/abel-shin/pccp-java/blob/main/src/day4/Practice2.java){:target="_blank"})
 
 ## 그래프 문제 풀이
 
