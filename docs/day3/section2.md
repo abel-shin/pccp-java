@@ -1,94 +1,66 @@
-# 재귀 호출
+# 스택
 
-## 재귀 호출이란
+## 스택이란
 
-- 함수가 자기 자신을 호출하는 것을 재귀 호출이라 한다.
-- 분할 정복(Divide & Conquer), 점화식 등을 구현하는 데에 많이 사용된다.
-- 재귀 구현은 항상 반복(Iteration) 구현으로 변환될 수 있다.
+- 스택은 후입선출(Last In First Out; LIFO)의 특성을 가지는 **추상 자료형**이다.
+- 자료가 입력된 순서의 역순으로 처리되어야 할 때 사용한다.
+    - ex) 프로토타입 체인, 함수 콜 스택, OS 등
 
-## 점화식
+## 스택의 연산자
 
-- 재귀식(Recursion relation)이라고도 부르며, 수열의 항 사이의 관계를 나타낸다.
-- 일부 점화식은 일반식으로 풀이할 수 있다. 수열을 n에 대한 식으로 표현하는 것을 '풀이한다'고 한다.
-- 점화식의 예
-    - 피보나치 수열: `f(n) = f(n-1) + f(n-2)`
-    - 팩토리얼: `f(n) = n * f(n-1)`
-    - 등차 수열: `f(n) - f(n-1) = d`
-    - 등비 수열: `f(n) / f(n-1) = r`
+![스택의 연산자](img/section2/1.png)
 
-## 재귀 호출
+1. 자료를 Top 위에 삽입하는 연산자 (Push)
+    - 더 이상 삽입할 수 없는 경우 *오버플로우* 발생
+1. 자료를 Top에서 꺼내는 연산자 (Pop)
+    - 더 이상 꺼낼 수 없는 경우 *언더플로우* 발생
+1. Top에 있는 자료를 반환하지만, 삭제하지는 않는 연산자 (Peek)
+1. 스택이 비어있는지 확인하는 연산자 (Empty)
 
-- 재귀 호출을 할 때에는 반드시 '탈출 조건'이 필요하다.
-    - 탈출 조건이 없으면, 재귀 호출은 무한히 계속된다.
-- 점화식에 의거하여 재귀 호출을 수행한다.
-    - 입력 파라미터를 달리하여, 결국 탈출 조건에 도달할 수 있게 한다.
+## 스택의 구현
 
-``` java title="Fibonacci using recursion" 
-int fibonacci(n):
-    if (n < 2): // 탈출 조건
-        return 1
-    return fibonacci(n-1) + fibonacci(n-2) // 재귀 호출(점화식 구현)
-```
+![스택](img/section2/2.png)
 
-## 재귀 호출의 한계
+- 배열을 이용하여 구현한 스택
+    - 배열을 사용하므로, 크기가 정해져 있다.
+    - 메모리 상에서 연속으로 존재하기 떄문에 동작 속도가 빠르다.
 
-![피보나치 수열](img/section2/1.png)
+## Java에서 스택의 사용
 
-- 여러번 재귀 호출이 발생하는 경우, 기하급수적으로 호출 횟수가 증가한다.
-    - 함수 호출 스택(Function call stack)의 크기에 제한이 있어, 일정 횟수 이상 호출이 불가하다.
-- 실질적인 계산에 필요한 연산보다, 함수 호출에 의한 Overhead가 발생한다.
+- `Stack<T>` 제네릭 클래스가 있으나, **속도가 아주 느리므로 쓰지 않는다.**
 
-## 재귀 함수의 반복 구현
+    ``` java title="Don't use this"
+    Stack<Integer> stack = new Stack<>();
+    stack.push(1);
+    stack.push(12);
+    stack.push(30);
 
-- 대부분의 재귀 함수는 for문이나 while문으로 구현할 수 있다.
-- 탈출 조건 대신 초기값을 이용하여 Bottom-Up 형태로 구현한다.
-
-    ``` java title="Fibonacci using iteration"
-    int fibonacci_iter(n) {
-        int a = 1, b = 1; // 초기값
-        for (int i = 3; i < n; i++) {
-            int temp = a;
-            a = a + b; // a는 fibo(i)를 기억
-            b = temp;  // b는 fibo(i-1)를 기억
-        }
-        return a;
+    while (!stack.isEmpty()) {
+        int value = stack.pop();
+        System.out.println(value); // 30, 12, 1
     }
     ```
 
+- 몇가지 기능이 추가되어 있는 `Deque<T>` 제네릭 인터페이스와 `ArrayDeque<T>` 제네릭 클래스를 사용한다.
 
-## 스택과 재귀 함수
+    ``` java
+    Deque<Integer> stack = new ArrayDeque<>();
+    stack.push(1);
+    stack.push(12);
+    stack.push(30);
 
-- 스택을 이용하면 재귀 호출과 동일한 로직을 재귀 호출 없이 구현할 수 있다.
-
-
-    ``` java title="Fibonacci using a stack"
-    int fibonacci_stack(n) {
-        int result = 0;
-        
-        Deque<Integer> stack = new ArrayDeque<>();
-        stack.push(n);
-        
-        while (!stack.isEmpty()) {
-            int value = stack.pop();
-
-            if (value == 0 || value == 1) {
-                result += 1;
-            } else {
-                stack.push(value - 1);
-                stack.push(value - 2);
-            }
-        }
-
-        return result;
+    while (!stack.isEmpty()) {
+        int value = stack.pop();
+        System.out.println(value); // 30, 12, 1
     }
     ```
 
     !!! note
 
-        재귀 호출을 이용한 구현에 비해서 가독성도 떨어지고, 작성 시간도 오래 걸리기 떄문에 성능 이슈가 있을 때만 특별히 사용한다.
+        Deque는 데크(Dequeue)를 구현한 인터페이스이며, 스택과 큐 기능을 동시에 가지고 있다. 즉, 자료의 양 끝에서 입/출력이 모두 가능하다.
 
 
-## 재귀 문제 풀이
+## 스택 문제 해결
 
-- [프로그래머스 하노이의 탑](https://programmers.co.kr/learn/courses/30/lessons/12946){:target="_blank"} ([답안 코드](https://github.com/abel-shin/pccp-java/blob/main/src/day3/Solution1.java){:target="_blank"})
-- [카카오 괄호 변환 문제](https://programmers.co.kr/learn/courses/30/lessons/60058){:target="_blank"} ([답안 코드](https://github.com/abel-shin/pccp-java/blob/main/src/day3/Solution2.java){:target="_blank"})
+- [프로그래머스 올바른 괄호 문제](https://school.programmers.co.kr/learn/courses/30/lessons/12909){:target="_blank"} ([답안 코드](https://github.com/abel-shin/pccp-java/blob/main/src/day2/Solution7.java){:target="_blank"})
+- [프로그래머스 주식 가격 문제](https://school.programmers.co.kr/learn/courses/30/lessons/42584){:target="_blank"} ([답안 코드](https://github.com/abel-shin/pccp-java/blob/main/src/day2/Solution8.java){:target="_blank"})
