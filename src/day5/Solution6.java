@@ -1,4 +1,4 @@
-package day4;
+package day5;
 
 // https://school.programmers.co.kr/learn/courses/30/lessons/132265
 

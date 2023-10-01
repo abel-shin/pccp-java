@@ -1,32 +1,39 @@
 package day3;
 
-// https://school.programmers.co.kr/learn/courses/30/lessons/12946
+// https://school.programmers.co.kr/learn/courses/30/lessons/12909
 
-import java.util.List;
-import java.util.ArrayList;
+import java.util.Deque;
+import java.util.ArrayDeque;
 
 /*
- * 재귀 구현의 기본이자 넘어야 할 벽, 하노이의 탑입니다.
- * 점화식과 종료조건을 정확하게 이해하고 구현해 봅시다.
- * 덤으로 List와 Array를 넘나드는 구현에 익숙해져 봅시다.
+ * 스택을 이용하는 괄호 짝 맞추기 문제입니다.
+ * 스택이 사용되는 가장 기초적인 예제이므로 꼭 잘 익혀둡시다.
  */
 
 class Solution1 {
-    public int[][] solution(int n) {
-        List<int[]> result = hanoi(1, 3, 2, n);
-        return result.stream().toArray(int[][]::new); // List를 Array로 변환할 때에는 stream을 쓰면 편리
-    }
-    
-    List<int[]> hanoi(int start, int end, int support, int n) {
-        if (n == 1) { // 종료 조건
-            List<int[]> result = new ArrayList<>();
-            result.add(new int[]{start, end});
-            return result;
+    boolean solution(String s) {
+        if (s.length() % 2 != 0) { // 괄호의 개수가 홀수이면 무조건 false
+            return false;
         }
         
-        List<int[]> result = hanoi(start, support, end, n-1); // 상단 n-1개를 support로 이동
-        result.add(new int[]{start, end}); // 최하단 1개를 end로 이동
-        result.addAll(hanoi(support, end, start, n-1)); // 상단 n-1개를 end로 이동
-        return result;        
+        Deque<Character> stack = new ArrayDeque<>();
+        
+        for (char c: s.toCharArray()) {
+            if (c == '(') { // 여는 괄호는 스택에 넣는다.
+                stack.push(c);
+            } else { // 닫는 괄호가 나올때 마다 스택에서 하나씩 꺼낸다.
+                if (stack.isEmpty()) { // 스택이 비어있으면 짝이 맞지 않으므로 false
+                    return false;
+                } else {
+                    stack.pop();
+                }
+            }
+        }
+        
+        if (stack.isEmpty()) { // 문자열 전체를 다 처리 하고 스택이 비어 있어야 짝이 맞다.
+            return true;
+        }
+        
+        return false;
     }
 }

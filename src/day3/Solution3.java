@@ -1,69 +1,36 @@
 package day3;
 
-// https://school.programmers.co.kr/learn/courses/30/lessons/92343
+// https://school.programmers.co.kr/learn/courses/30/lessons/42586
 
-import java.util.Set;
-import java.util.HashSet;
+import java.util.Queue;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.ArrayList;
 
 /*
- * DFS를 이용한 완전 탐색 문제입니다.
- * 탐색의 기준이 현재 노드가 아닌, 지금까지 탐색한 모든 노드의 자식이 됩니다.
- * 늑대와 양의 수가 같아지면 해당 방향으로는 더이상 탐색하지 않습니다.
+ * 큐를 사용하는 대표적인 예제입니다.
+ * 선입선출의 특징을 이용해 순서대로 일이 처리될 수 있게 합니다.
+ * 한번에 배포되는 단위를 끊기 위해, 큐에는 일처리에 걸리는 일 수를 입력합니다.
  */
 
 class Solution3 {
-    int[] info;
-    Set<Integer>[] adj;
-    int answer = 0;
-    
-    public int solution(int[] info, int[][] edges) {
-        this.info = info;
-        this.adj = new Set[info.length];
-        
-        for (int i = 0; i < adj.length; i++) { // 인접 리스트로 변환 (여기서는 List 대신 Set을 사용)
-            adj[i] = new HashSet<>();
+    public int[] solution(int[] progresses, int[] speeds) {
+        Queue<Integer> queue = new LinkedList<>();
+        List<Integer> answer = new ArrayList<>();
+
+        for (int i = 0; i < speeds.length; i++) {
+            double remain = (100 - progresses[i]) / (double) speeds[i];
+            int date = (int) Math.ceil(remain); // i번째 작업의 처리에 걸리는 일 수
+
+            if (!queue.isEmpty() && queue.peek() < date) { // i번째 작업보다 일찍 배포가 가능해졌을 때, 큐에 쌓인 모든 작업 배포
+                answer.add(queue.size());
+                queue.clear();
+            }
+
+            queue.offer(date); // i번째 작업을 큐에 추가
         }
-        
-        for (int[] e: edges) {
-            adj[e[0]].add(e[1]);
-        }
-        
-        Set<Integer> children = new HashSet<>(); // 탐색한 노드의 모든 자식 노드를 모은 셋
-        for (int child: adj[0]) {
-            children.add(child);
-        }
-        
-        dfs(0, 0, 0, children);
-        
-        return answer;
-    }
-    
-    void dfs(int curr, int sheep, int wolf, Set<Integer> children) {
-        if (info[curr] == 0) { // 양/늑대의 수 업데이트
-            sheep += 1;
-        } else {
-            wolf += 1;
-        }
-        
-        if (sheep <= wolf) { // 늑대가 양을 잡아먹는 상황이면 진행 불가
-            return;
-        }
-        
-        answer = Math.max(answer, sheep); // 가능한 최대 양의 수 업데이트
-        
-        for (int child: adj[curr]) { // 현재 방문중인 노드의 모든 자식 추가
-            children.add(child);
-        }
-        
-        Set<Integer> childrenCopy = new HashSet<>(children);
-        for (int child: childrenCopy) {
-            children.remove(child); // 새로 방문하는 노드는 제거(제거하지 않으면 무한히 자기 자신을 방문)
-            dfs(child, sheep, wolf, children); // 새로운 노드 방문
-            children.add(child); // 제거한 새로 방문하는 노드 되살리기
-        }
-        
-        for (int child: adj[curr]) { // 앞서 추가한 현재 방문중인 노드의 자식 제거
-            children.remove(child);
-        }
+        answer.add(queue.size()); // 마지막에 큐에 쌓여있는 모든 작업 배포
+
+        return answer.stream().mapToInt(i->i).toArray();
     }
 }

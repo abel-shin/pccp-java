@@ -6,27 +6,22 @@ import java.util.List;
 import java.util.Queue;
 
 /*
- * 그래프의 DFS와 BFS를 구현하세요.
- * 그래프의 edges는 양방향으로 연결되어 있습니다.
+ * 트리의 DFS와 BFS를 구현하세요.
  * 중간 동작 과정을 알 수 있게, node에 접근할 때 마다 해당 노드의 번호를 콘솔에 출력하세요.
  */
 
 class Practice2 {
     boolean found = false;
     List<Integer>[] adjList;
-    boolean[] visited;
 
     boolean dfs(int node, int target, int n, int[][] edges) {
         adjList = new List[n+1];
-        visited = new boolean[n+1];
-
         for (int i = 0; i < adjList.length; i++) {
             adjList[i] = new ArrayList<>();
         }
         
         for (int[] e: edges) {
             adjList[e[0]].add(e[1]);
-            adjList[e[1]].add(e[0]);
         }
 
         solve(node, target);
@@ -35,12 +30,6 @@ class Practice2 {
     }
 
     void solve(int node, int target) {
-        if (visited[node]) {
-            return;
-        }
-        visited[node] = true;
-
-
         if (node == target) {
             System.out.println(node);
             found = true;
@@ -61,15 +50,12 @@ class Practice2 {
 
     boolean bfs(int node, int target, int n, int[][] edges) {
         List<Integer>[] adjList = new List[n+1];
-        boolean[] visited = new boolean[n+1];
-
         for (int i = 0; i < adjList.length; i++) {
             adjList[i] = new ArrayList<>();
         }
         
         for (int[] e: edges) {
             adjList[e[0]].add(e[1]);
-            adjList[e[1]].add(e[0]);
         }
 
         Queue<Integer> queue = new LinkedList<>();
@@ -78,11 +64,6 @@ class Practice2 {
 
         while (!queue.isEmpty()) {
             int currNode = queue.poll();
-
-            if (visited[currNode]) {
-                continue;
-            }
-            visited[currNode] = true;
 
             if (currNode == target) {
                 System.out.println(currNode);
@@ -101,9 +82,9 @@ class Practice2 {
     }
 
     public static void main(String[] args) {
-        int n = 7;
-        int[][] edges = {{1, 4}, {2, 3}, {5, 2}, {3, 6}, {4, 3}, {7, 6}, {6, 2}};
+        int n = 9;
+        int[][] edges = {{1, 2}, {1, 3}, {2, 4}, {3, 5}, {3, 6}, {5, 7}, {7, 8}, {6, 9}};
         System.out.println(new Practice2().dfs(1, 6, n, edges));
-        System.out.println(new Practice2().bfs(1, 6, n, edges));
+        System.out.println(new Practice2().bfs(1, 9, n, edges));
     }
 }

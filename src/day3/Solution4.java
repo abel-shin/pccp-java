@@ -1,34 +1,55 @@
 package day3;
 
-// https://school.programmers.co.kr/learn/courses/30/lessons/43165
+// https://school.programmers.co.kr/learn/courses/30/lessons/42587
+
+import java.util.Queue;
+import java.util.LinkedList;
 
 /*
- * DFS를 이용한 완전 탐색 문제입니다.
- * 각 숫자를 더할지 뺄지 나누어나가는 이진트리라고 볼 수 있습니다.
- * 이진트리의 리프노드까지 탐색하여 원하는 타겟 숫자가 나오는지 확인합니다.
+ * 큐를 이용한 프로세스 처리를 충실하게 시뮬레이션하는 문제입니다.
+ * 문제에서 제시된 대로 시뮬레이션하면서, 답안이 발생하면 곧바로 시뮬레이션을 종료합니다.
  */
 
+
 class Solution4 {
-    int[] numbers;
-    int target;
-    int count = 0;
-    
-    public int solution(int[] numbers, int target) {
-        this.numbers = numbers;
-        this.target = target;
-        dfs(-1, 0);
-        return count;
-    }
-    
-    void dfs(int i, int value) {
-        if (i == numbers.length - 1) { // 리프 노드에 도달했을 때,
-            if (value == target) {  // 타겟 숫자를 달성했으면 정답으로 카운트
-                count++;
-            }
-            return;
+    public int solution(int[] priorities, int location) {
+        int answer = 0;
+        Queue<Integer> queue = new LinkedList<>();
+ 
+        for (int i = 0; i < priorities.length; i++) {
+            queue.add(priorities[i]); // 큐에 모든 작업 삽입
         }
         
-        dfs(i+1, value + numbers[i+1]); // 다음 숫자를 더하는 경우
-        dfs(i+1, value - numbers[i+1]); // 다음 숫자를 빼는 경우
+        while (!queue.isEmpty()) {
+            int max = 0; // 큐에 있는 최대 priority
+ 
+            for (int val : queue) {
+                if (val > max) {
+                    max = val;
+                }
+            }
+ 
+            if (queue.peek() >= max) { // 현재 작업의 우선순위가 가장 높으면 처리
+                answer++;
+                
+                if (location == 0) { // 원하는 location의 작업이 처리됐으면 시뮬레이션 종료
+                    break;
+                } else { // 원하는 location이 아니면 계속해서 진행
+                    queue.poll();
+                    location--;
+                }
+            } else { // 우선순위가 낮으면 큐에 다시 추가
+                queue.add(queue.peek());
+                queue.poll();
+ 
+                if (location == 0) { // 원하는 작업이지만 처리되지 않았을 경우, location 초기화
+                    location = queue.size() - 1;
+                } else { // 원하는 작업이 아닐 경우 location 조정
+                    location--;
+                }
+            }
+        }
+ 
+        return answer;
     }
 }

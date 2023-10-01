@@ -1,83 +1,35 @@
 package day3;
 
-// https://school.programmers.co.kr/learn/courses/30/lessons/60058
+// https://school.programmers.co.kr/learn/courses/30/lessons/42584
 
 import java.util.Deque;
 import java.util.ArrayDeque;
 
 /*
- * 재귀 구현만 잘 할 수 있으면 풀이할 수 있는 문제입니다.
- * 재귀의 기본에 집중하면서 정확하게 구현해 봅시다.
+ * 스택을 이용하는 조금 더 어려운 예제입니다.
+ * 한번에 하나씩 짝을 맞추는 것이 아닌, 조건에 맞는 여러개의 짝을 맞춥니다.
+ * 가격이 상승할 때에는 스택에 추가하고,
+ * 가격이 하락하면 더 높은 가격을 모두 짝을 맞추어 주는 형식으로 구현합니다.
  */
 
 class Solution2 {
-    public String solution(String p) {
-        return solve(p);
-    }
-    
-    String solve(String w) {
-        int left = 0;
-        int right = 0;
-        int splitI = 0;
+    public int[] solution(int[] prices) {
+        Deque<Integer> stack = new ArrayDeque<>();
+        int[] answer = new int[prices.length];
         
-        if (w.length() == 0) {
-            return w;
-        }
-        
-        for (int i = 0; i < w.length(); i++) { // 균형잡힌 문자열 u를 찾는다.
-            if (w.charAt(i) == '(') {
-                left++;
-            } else {
-                right++;
+        for(int i = 0; i < prices.length; i++) {
+            while (!stack.isEmpty() && prices[i] < prices[stack.peek()]) { // 가격이 top보다 하락한 동안 pop
+                answer[stack.peek()] = i - stack.peek();
+                stack.pop();
             }
-            
-            if (left > 0 && left == right) {
-                splitI = i;
-                break;
-            }
+            stack.push(i); // pop 과정이 모두 끝나면 새로운 값을 push
         }
         
-        String u = w.substring(0, splitI + 1);
-        String v = w.substring(splitI + 1);
-        
-        if (isCorrect(u)) { // u가 올바른 문자열이면, v를 재귀 호출한다.
-            return u + solve(v);
-        } else { // u가 올바른 문자열이 아니면, 주어진 조건대로 동작한다.
-            StringBuilder sb = new StringBuilder();
-            sb.append("(");
-            sb.append(solve(v));
-            sb.append(")");
-            
-            for (int i = 1; i < u.length()-1; i++) {
-                if (u.charAt(i) == '(') {
-                    sb.append(')');
-                } else {
-                    sb.append('(');
-                }
-            }
-            return sb.toString();
-        }
-    }
-    
-    boolean isCorrect(String s) { // 스택을 이용하면 올바른 문자열인지 확인할 수 있다.
-        Deque<Character> stack = new ArrayDeque<>();
-        
-        for (char c: s.toCharArray()) {
-            if (c == '(') {
-                stack.push(c);
-            } else {
-                if (!stack.isEmpty()) {
-                    stack.pop();
-                } else {
-                    return false;
-                }
-            }
+        while (!stack.isEmpty()) { // 마지막까지 가격이 떨어지지 않은 인덱스 처리
+            answer[stack.peek()] = prices.length - stack.peek() - 1;
+            stack.pop();
         }
         
-        if (!stack.isEmpty()) {
-            return false;
-        }
-        
-        return true;
+        return answer;        
     }
 }
