@@ -24,10 +24,12 @@
     - 입력 파라미터를 달리하여, 결국 탈출 조건에 도달할 수 있게 한다.
 
 ``` java title="Fibonacci using recursion" 
-int fibonacci(n):
-    if (n < 2): // 탈출 조건
-        return 1
-    return fibonacci(n-1) + fibonacci(n-2) // 재귀 호출(점화식 구현)
+int fibonacci(n){
+    if (n < 2) { // 탈출 조건
+        return 1;
+    }
+    return fibonacci(n-1) + fibonacci(n-2); // 재귀 호출(점화식 구현)
+}
 ```
 
 ## 재귀 호출의 한계
