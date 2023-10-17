@@ -24,7 +24,7 @@
 // array의 길이 = N
 int[] array = {1, 6, 2, 5, 4, 2, 5, 2, 3, 6, 3};
 
-int sum = 0
+int sum = 0;
 // 배열의 길이에 비례해서 반복하는 for문. 복잡도는 N
 for (int i = 0; i < array.length; i++) { 
     sum += array[i];
@@ -36,7 +36,7 @@ for (int i = 0; i < array.length; i++) {
 int[] array = {1, 6, 2, 5, 4, 2, 5, 2, 3, 6, 3};
 int[] array2 = {4, 2, 1, 6, 7, 4, 3, 6};
 
-int sum = 0
+int sum = 0;
 // 배열의 길이에 비례해서 반복하는 for문. 복잡도는 N
 for (int i = 0; i < array.length; i++) { 
     sum += array[i];
@@ -56,7 +56,7 @@ int[] array2D = {{1, 6, 2, 5, 4},
                {2, 5, 2, 3, 6},
                {3, 1, 2, 4, 5}};
 
-int sum = 0
+int sum = 0;
 // 이중 for문, M번 반복이 N번 반복되므로 복잡도는 N*M
 for (int i = 0; i < array2D.length; i++) { 
     for (int j = 0; j < array2D[i].length; j++) { 
