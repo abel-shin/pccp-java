@@ -48,7 +48,7 @@
 - 개방 주소법은 더이상 해시 충돌이 발생하지 않을 때 까지 반복하여 사용한다.
 - 개방 주소법의 종류
     - 선형 탐사 (Linear Probing): 정해진 값만큼 index를 이동하는 방법. 보통 1을 사용한다.
-    - 이차 탐사 (Quadratic Probing): index를 제곱한 값으로 이동하는 방법
+    - 이차 탐사 (Quadratic Probing): 이동 횟수를 제곱한 값만큼 이동하는 방법
     - 이중 해싱 (Double Hashing): 별도의 해시 함수를 이용해 이동 간격을 결정하는 방법
 
 ### 체이닝 (Chaining)
