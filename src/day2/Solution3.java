@@ -29,10 +29,10 @@ class Solution3 {
         }
         
         for (int i = 0; i < lost.length; i++){
-            for (int j = 0; j < reserve.length; j++){
-                if (lost[i] == -1) {
-                    continue;
-                }
+            if (lost[i] == -1) {
+                continue;
+            }
+            for (int j = 0; j < reserve.length; j++){   
                 if ((lost[i]-1 == reserve[j]) || (lost[i]+1 == reserve[j])){
                     answer++; // 정렬을 해 주었기 때문에, 일정한 기준(더 작은 인덱스 우선)으로 빌려주게 됩니다.
                     reserve[j] = -1; 
