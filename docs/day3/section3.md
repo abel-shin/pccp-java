@@ -40,9 +40,9 @@
 
     ``` java
     Queue<Integer> queue = new LinkedList<>();
-    queue.put(1);
-    queue.put(12);
-    queue.put(30);
+    queue.offer(1);
+    queue.offer(12);
+    queue.offer(30);
 
     while (!queue.isEmpty()) {
         int value = queue.poll();
