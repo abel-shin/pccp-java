@@ -37,6 +37,9 @@ nav:
     - 'day5/section1.md'
     - 'day5/section2.md'
     - 'day5/section3.md'
+  - extra:
+    - 'extra/section1.md'
+    - 'extra/section2.md'
   - 모의고사1:
     - 'prob1/section1.md'
     - 'prob1/section2.md'
