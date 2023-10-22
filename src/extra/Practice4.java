@@ -10,12 +10,12 @@ class Practice4 {
         int N = W.length;
         int[][] dp = new int[N+1][C+1];
 
-        for (int i = 1; i < N+1; i++) {
+        for (int i = 0; i < N; i++) {
             for (int w = 0; w < C+1; w++) {
-                if (w >= W[i-1]) {
-                    dp[i][w] = Math.max(dp[i-1][w], dp[i-1][w-W[i-1]] + V[i-1]);
+                if (w >= W[i]) {
+                    dp[i+1][w] = Math.max(dp[i][w], dp[i][w-W[i]] + V[i]);
                 } else {
-                    dp[i][w] = dp[i-1][w];
+                    dp[i+1][w] = dp[i][w];
                 }
             }
         }
