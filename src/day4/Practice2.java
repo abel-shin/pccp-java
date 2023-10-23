@@ -26,7 +26,7 @@ class Practice2 {
 
         solve(node, target);
 
-        return true;
+        return found;
     }
 
     void solve(int node, int target) {
