@@ -1,47 +1,46 @@
 package day5;
 
+import java.util.*;
+
 // https://school.programmers.co.kr/learn/courses/30/lessons/43163
 
 /*
  * 단어를 하나씩 타고 다니면서 변환하는 그래프 문제입니다.
- * 그래프가 아닌 트리 문제로 해석할 경우, 루프가 발생해 무한히 탐색하게 됩니다.
+ * BFS로 접근하면 가장 빨리 target에 도달하는 경우를 찾을 수 있습니다.
  * 문자가 하나만 다르면 두 문자열은 인접한 노드가 되는 점을 이용해 구현해 봅시다.
  */
 
+
 class Solution2 {
-    String target;
-    String[] words;
-    int answer = Integer.MAX_VALUE;
- 
     public int solution(String begin, String target, String[] words) {
-        this.target = target;
-        this.words = words;
+        Set<String> visited = new HashSet<>(); // 이미 접근한 단어를 저장하기 위한 Hash Set
+        Queue<Item> queue = new LinkedList<>(); // BFS를 수행하기 위한 Queue (단어와 depth를 함께 저장)
         
-        boolean[] visited = new boolean[words.length]; // 방문한 노드에 재방문하지 않기 위한 visited 배열
+        queue.offer(new Item(begin, 0));
         
-        dfs(0, 0, begin, visited);
- 
-        return answer == Integer.MAX_VALUE ? 0 : answer; // 답이 없을 경우 0 반환
-    }
- 
-    void dfs(int idx, int count, String word, boolean[] visited) {
-        if (word.equals(target)) { // 타겟에 도달했으면 변환 횟수를 업데이트
-            answer = Math.min(answer, count);
-            return;
-        }
- 
-        for (int i = 0; i < words.length; i++) { // i번째 문자열이 방문 가능하면 방문 수행
-            if (visited[i] || answer <= count || !isAdjacent(word, words[i])) {
+        while (!queue.isEmpty()) {
+            Item q = queue.poll();
+            if (q.word.equals(target)) {
+                return q.depth;
+            }
+            
+            if (visited.contains(q.word)) {
                 continue;
             }
- 
-            visited[i] = true; // 방문 여부를 반드시 체크
-            dfs(i, count + 1, words[i], visited);
-            visited[i] = false;
+            visited.add(q.word);
+            
+            for (String word: words) {
+                if (isAdjacent(word, q.word)) {
+                    queue.offer(new Item(word, q.depth+1));
+                }
+            }
+            
         }
+ 
+        return 0;
     }
  
-    boolean isAdjacent(String x, String y) { // 한 문자만 다를 경우 인접한 문자열
+    boolean isAdjacent(String x, String y) { // 문자가 한개만 다를 경우 인접한 단어
         int count = 0;
         for (int i = 0; i < x.length(); i++) {
             if (x.charAt(i) != y.charAt(i)) {
@@ -54,5 +53,15 @@ class Solution2 {
         }
  
         return true;
+    }
+}
+
+class Item {
+    String word;
+    int depth;
+    
+    Item(String word, int depth) {
+        this.word = word;
+        this.depth = depth;
     }
 }
