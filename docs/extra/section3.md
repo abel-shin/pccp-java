@@ -60,7 +60,7 @@ pq.add(6);
 
 System.out.println(pq.peek()) // 제일 작은 값 반환(삭제는 하지 않음)
 
-while !pq.isEmpty() { // poll이나 remove로 제거
+while (!pq.isEmpty()) { // poll이나 remove로 제거
     System.out.println(pq.poll())
 }
 ```
@@ -82,7 +82,7 @@ pq.offer(new int[]{7, 5});
 pq.offer(new int[]{4, 12});
 pq.offer(new int[]{10, 3});
 
-while !pq.isEmpty() {
+while (!pq.isEmpty()) {
     int[] val = pq.poll();
     System.out.printf("%d %d\n", val[0], val[1]);
 }
