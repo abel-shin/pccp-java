@@ -16,7 +16,7 @@
 
 ![해시 셋](img/section6/2.png)
 
-- 집합을 구현하는 대표적인 자료구조. 파이썬에서는 set 자료형으로 구현되어 있다.
+- 집합을 구현하는 대표적인 자료구조. Java에서는 Set 인터페이스와 HashSet 클래스로 구현되어 있다.
     - 해시값을 인덱스로 하여 배열(Bucket)에 자료를 저장하는 자료구조이다.
         - 자료를 저장하는 인덱스는 `index = hash_value % bucket_size`로 정한다.
     - 자료의 중복을 허용하지 않으며, 빠르게 자료를 탐색할 수 있다.
@@ -26,7 +26,7 @@
 
 ![해시 테이블](img/section6/3.png)
 
-- key와 value의 쌍을 저장하는 자료구조로. 파이썬에는 dictionary 자료형으로 구현되어 있다.
+- key와 value의 쌍을 저장하는 자료구조로. Java에서는 Map 인터페이스와 HashMap 클래스로 구현되어 있다.
     - key의 해시값을 인덱스로 하여, 배열(Hash Table)에 key와 value를 저장하는 자료구조이다.
         - 자료를 저장하는 인덱스는 `index = hash_value % bucket_size`로 정한다.
     - key는 중복이 허용되지 않으나, value는 중복이 허용된다.
